@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liberty Oil & Propane | You Can Count On Us</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1628;
+      --navy-light: #0f2040;
+      --amber: #f59e0b;
+      --amber-dark: #d97706;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --green: #10b981;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--gray-800);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    }
+
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span { color: var(--amber); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray-400);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--amber);
+      color: var(--navy) !important;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { background: var(--amber-dark); color: var(--navy) !important; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a1628 0%, #0f2040 40%, #1a0a00 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center bottom, rgba(245,158,11,0.15) 0%, transparent 70%);
+    }
+
+    .hero-content { position: relative; max-width: 800px; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245,158,11,0.15);
+      color: var(--amber);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 999px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 span { color: var(--amber); }
+
+    .hero-content p {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--gray-400);
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--amber);
+      color: var(--navy);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--amber-dark); transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      transition: border-color 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover { border-color: var(--white); transform: translateY(-1px); }
+
+    .hero-phones {
+      margin-top: 3rem;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-phones a {
+      color: var(--gray-400);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .hero-phones a:hover { color: var(--amber); }
+    .hero-phones a::before { content: '📞 '; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray-600);
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--gray-50); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 2rem;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateY(-3px); }
+
+    .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--navy);
+    }
+
+    .card p { color: var(--gray-600); font-size: 0.95rem; margin-bottom: 1rem; }
+
+    .card-min {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--amber-dark);
+      background: rgba(245,158,11,0.1);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--gray-600);
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      background: var(--gray-50);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 3px solid var(--amber);
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label { font-size: 0.85rem; color: var(--gray-600); font-weight: 500; }
+
+    /* ── WHY CHOOSE US ── */
+    #why {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    #why .section-title { color: var(--white); }
+    #why .section-sub { color: var(--gray-400); }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      background: var(--navy-light);
+      border-radius: 14px;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .feature h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+    .feature p { font-size: 0.9rem; color: var(--gray-400); }
+
+    /* ── INCENTIVES ── */
+    #incentives { background: var(--gray-50); }
+
+    .incentive-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 3rem;
+      border: 1px solid #e2e8f0;
+      max-width: 700px;
+      margin: 3rem auto 0;
+      text-align: center;
+    }
+
+    .incentive-card .big-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .incentive-card h3 { font-size: 1.6rem; font-weight: 800; color: var(--navy); margin-bottom: 0.75rem; }
+    .incentive-card p { color: var(--gray-600); font-size: 1rem; margin-bottom: 1.5rem; }
+
+    /* ── CLEAN ENERGY ── */
+    #cleanenergy { background: var(--white); }
+
+    .clean-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .clean-points { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+
+    .clean-points li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.95rem;
+      color: var(--gray-600);
+    }
+
+    .clean-points li::before {
+      content: '✅';
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .clean-stat-box {
+      background: linear-gradient(135deg, #064e3b, #065f46);
+      border-radius: 16px;
+      padding: 3rem;
+      color: white;
+      text-align: center;
+    }
+
+    .clean-stat-box .big-num {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #6ee7b7;
+      margin-bottom: 0.5rem;
+    }
+
+    .clean-stat-box p { font-size: 1rem; opacity: 0.85; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--gray-50); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .contact-form {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .form-group { margin-bottom: 1.25rem; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--gray-800);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--amber); }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--amber);
+      color: var(--navy);
+      border: none;
+      padding: 0.9rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover { background: var(--amber-dark); }
+
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .contact-detail {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .contact-detail-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .contact-detail h4 { font-size: 0.85rem; font-weight: 700; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem; }
+    .contact-detail p, .contact-detail a { font-size: 1rem; color: var(--navy); font-weight: 500; text-decoration: none; display: block; }
+    .contact-detail a:hover { color: var(--amber-dark); }
+
+    .map-placeholder {
+      border-radius: 12px;
+      height: 220px;
+      margin-top: 1rem;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+
+    .map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: var(--gray-400);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand h3 { font-size: 1.2rem; font-weight: 800; color: var(--white); margin-bottom: 0.5rem; }
+    .footer-brand h3 span { color: var(--amber); }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.7; }
+
+    .footer-col h4 { font-size: 0.85rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col a { color: var(--gray-400); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--amber); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy); padding: 1rem 2rem 2rem; gap: 1rem; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+      .about-grid, .clean-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .hero-phones { flex-direction: column; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Liberty <span>Oil & Propane</span></div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#incentives">Incentives</a></li>
+    <li><a href="#cleanenergy">Clean Energy</a></li>
+    <li><a href="#contact" class="nav-cta">Request Delivery</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-content">
+    <div class="hero-badge">🔥 Serving Liberty, NC & Surrounding Areas</div>
+    <h1>Liberty <span>Oil & Propane</span></h1>
+    <p>You Can Count On Us. Reliable fuel delivery for your home and business — heating oil, propane, and kerosene when you need it most.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">Request a Delivery</a>
+      <a href="#services" class="btn-ghost">Our Services</a>
+    </div>
+    <div class="hero-phones">
+      <a href="tel:3366224393">336-622-4393</a>
+      <a href="tel:18002375308">1-800-237-5308</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What We Deliver</div>
+    <h2 class="section-title">Our Fuel Services</h2>
+    <p class="section-sub">We deliver high-quality heating fuels directly to your door — residential and commercial customers welcome.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🔥</div>
+        <h3>Heating Oil</h3>
+        <p>Keep your home warm all winter long with reliable heating oil delivery. We service residential and commercial accounts throughout the Liberty, NC area.</p>
+        <span class="card-min">200 gallon minimum delivery</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">⛽</div>
+        <h3>Propane</h3>
+        <p>Clean, efficient propane for heating, cooking, water heating, and more. Perfect for homes and businesses looking for a versatile energy solution.</p>
+        <span class="card-min">100 gallon minimum delivery</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛢️</div>
+        <h3>Kerosene</h3>
+        <p>High-quality kerosene for space heaters, wick heaters, and backup heating systems. A reliable supplemental fuel source for when you need it most.</p>
+        <span class="card-min">200 gallon minimum delivery</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Local. Trusted. Dependable.</h2>
+        <p>Liberty Oil & Propane has been serving families and businesses in Liberty, NC and the surrounding Randolph County area for over 20 years. We're a local company — we know our customers by name, not by account number.</p>
+        <p>When temperatures drop, you need a fuel company you can count on. We pride ourselves on prompt deliveries, fair pricing, and the kind of personal service that only a local business can provide.</p>
+        <p>From first-time homeowners to large commercial accounts, we treat every customer with the same level of care and respect.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value">20+</div>
+          <div class="stat-label">Years in Business</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">Local</div>
+          <div class="stat-label">Family Owned & Operated</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">Res & Com</div>
+          <div class="stat-label">Residential & Commercial</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">Fast</div>
+          <div class="stat-label">Reliable Delivery</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="container">
+    <div class="section-label">Why Liberty Oil & Propane</div>
+    <h2 class="section-title">The Fuel Company You Can Trust</h2>
+    <p class="section-sub">We've built our reputation on doing things right — every delivery, every time.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3>Reliable Delivery</h3>
+        <p>We show up when we say we will. No runaround, no delays — just dependable delivery when your tank is running low.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💰</div>
+        <h3>Competitive Pricing</h3>
+        <p>Fair, transparent pricing on all fuel types. We work hard to keep our rates competitive so you're always getting a good deal.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🛡️</div>
+        <h3>Safe & Certified</h3>
+        <p>All of our deliveries meet ASME safety standards and local regulations. Your family's safety is our top priority.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📍</div>
+        <h3>Local Service</h3>
+        <p>We're your neighbors. Based right here in Liberty, NC — we understand the community and are always just a phone call away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCENTIVES -->
+<section id="incentives">
+  <div class="container">
+    <div class="section-label">Referral Program</div>
+    <h2 class="section-title">Incentives & Referrals</h2>
+    <p class="section-sub">We appreciate your loyalty — and we want to reward you for spreading the word.</p>
+    <div class="incentive-card">
+      <div class="big-icon">🎁</div>
+      <h3>Refer a Friend, Earn Rewards</h3>
+      <p>Know someone who needs reliable fuel delivery? Refer them to Liberty Oil & Propane and earn credits toward your next delivery. The more you share, the more you save.</p>
+      <p>Call us today to learn about our current referral rewards and seasonal promotions. We're always running specials for loyal customers.</p>
+      <a href="#contact" class="btn-primary">Contact Us to Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLEAN ENERGY -->
+<section id="cleanenergy">
+  <div class="container">
+    <div class="section-label">Sustainability</div>
+    <h2 class="section-title">Propane is Clean Energy</h2>
+    <p class="section-sub">Choosing propane isn't just smart — it's a cleaner choice for your home and the environment.</p>
+    <div class="clean-grid">
+      <ul class="clean-points">
+        <li>Propane produces significantly fewer greenhouse gas emissions than other fossil fuels</li>
+        <li>Recognized as a clean fuel under the Clean Air Act of 1990</li>
+        <li>Burns cleaner than gasoline, diesel, and fuel oil</li>
+        <li>Non-toxic and won't contaminate soil or groundwater if spilled</li>
+        <li>Highly efficient — more energy output per BTU than other fuels</li>
+        <li>Approved alternative fuel by the U.S. Department of Energy</li>
+        <li>Versatile — heating, cooking, water heating, generators & more</li>
+      </ul>
+      <div class="clean-stat-box">
+        <div class="big-num">60%</div>
+        <p>Propane produces up to 60% fewer smog-producing hydrocarbons than gasoline — making it one of the cleanest burning conventional fuels available today.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Request a Delivery</h2>
+    <p class="section-sub">Ready to schedule your next fuel delivery? Fill out the form below or give us a call — we'll get you taken care of.</p>
+    <div class="contact-grid">
+      <form class="contact-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="John Smith" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(336) 000-0000" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="service">Fuel Type Needed</label>
+          <select id="service" name="service">
+            <option value="">Select a fuel type...</option>
+            <option value="heating-oil">Heating Oil</option>
+            <option value="propane">Propane</option>
+            <option value="kerosene">Kerosene</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message / Notes</label>
+          <textarea id="message" name="message" placeholder="Let us know your approximate gallons needed, address, or any special instructions..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Request →</button>
+      </form>
+      <div class="contact-info">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div>
+            <h4>Address</h4>
+            <p>432 S Greensboro St</p>
+            <p>Liberty, NC 27298</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:3366224393">336-622-4393</a>
+            <a href="tel:18002375308">1-800-237-5308 (Toll-Free)</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div>
+            <h4>Hours</h4>
+            <p>Monday – Friday: 8am – 5pm</p>
+            <p>Emergency service available</p>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3230.123!2d-79.5736!3d35.8595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8853a1b1b1b1b1b1%3A0x1!2s432+S+Greensboro+St%2C+Liberty%2C+NC+27298!5e0!3m2!1sen!2sus!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Liberty Oil & Propane Location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Liberty <span>Oil & Propane</span></h3>
+      <p>Your trusted local fuel delivery company serving Liberty, NC and surrounding Randolph County communities since the early 2000s.</p>
+      <br/>
+      <p>📞 336-622-4393 &nbsp;|&nbsp; 1-800-237-5308</p>
+      <p>📍 432 S Greensboro St, Liberty, NC 27298</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#incentives">Incentives</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Heating Oil</a></li>
+        <li><a href="#services">Propane</a></li>
+        <li><a href="#services">Kerosene</a></li>
+        <li><a href="#cleanenergy">Clean Energy</a></li>
+        <li><a href="#incentives">Referral Program</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Liberty Oil & Propane. All rights reserved.</span>
+    <span>Liberty, NC 27298</span>
+  </div>
+</footer>
+
+</body>
+</html>
